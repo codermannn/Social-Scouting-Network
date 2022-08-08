@@ -1,0 +1,260 @@
+﻿@using EntityLayer.Concrete
+@model List<Player>
+@{
+    ViewData["Title"] = "PlayerDetails";
+    Layout = "~/Views/Shared/UserLeftLayout.cshtml";
+}
+
+<section class="section" style="margin-top:20px;">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card" style="height:1200px">
+                <div class="card-body">
+
+                    <h5 class="card-title">@ViewBag.pn @ViewBag.ps Detayları</h5><br />
+
+
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="container bootstrap snippets bootdey" style="margin-right:225px;">
+                            <div class="panel-body inf-content">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <img alt="" width="360" height="360" title="" class="img-circle img-thumbnail isTooltip" src="https://www.gumustat.com.tr/wp-content/uploads/2016/07/no-image.jpg" data-original-title="Usuario">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <strong></strong><br>
+                                        <div class="table-responsive">
+                                            <table class="table table-user-information">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <strong>
+                                                                <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                                                Forma Numarası
+                                                            </strong>
+                                                        </td>
+                                                        <td class="text-primary">
+                                                            @item.PlayerNumber
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <strong>
+                                                                <span class="glyphicon glyphicon-user  text-primary"></span>
+                                                                Adı
+                                                            </strong>
+                                                        </td>
+                                                        <td class="text-primary">
+                                                            @item.PlayerName
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <strong>
+                                                                <span class="glyphicon glyphicon-user text-primary"></span>
+                                                                Soyadı
+                                                            </strong>
+                                                        </td>
+                                                        <td class="text-primary">
+                                                            @item.PlayerSurname
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>
+                                                            <strong>
+                                                                <span class="glyphicon glyphicon-user text-primary"></span>
+                                                                Takımı
+                                                            </strong>
+                                                        </td>
+                                                        <td class="text-primary">
+                                                            @item.Team.TeamName
+                                                        </td>
+                                                    </tr>
+
+
+                                                    <tr>
+                                                        <td>
+                                                            <strong>
+                                                                <span class="glyphicon glyphicon-user text-primary"></span>
+                                                                Pozisyon
+                                                            </strong>
+                                                        </td>
+                                                        <td class="text-primary">
+                                                            @item.PlayerPosition
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <strong>
+                                                                <span class="glyphicon glyphicon-user text-primary"></span>
+                                                                Değeri
+                                                            </strong>
+                                                        </td>
+                                                        <td class="text-primary">
+                                                            @item.PlayerValue
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <strong>
+                                                                <span class="glyphicon glyphicon-user text-primary"></span>
+                                                                Ülkesi
+                                                            </strong>
+                                                        </td>
+                                                        <td class="text-primary">
+                                                            @item.Country.CountryName
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <strong>
+                                                                <span class="glyphicon glyphicon-user text-primary"></span>
+                                                                Doğum Tarihi
+                                                            </strong>
+                                                        </td>
+                                                        <td class="text-primary">
+                                                            @(((DateTime)item.PlayerBirthDate).ToString("dd.MM.yyyy"))
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+
+                        <div class="card col-lg-4" style="float:left; margin-right:20px; margin-left:40px;">
+                            <div class="card-body pb-0">
+                                <h5 class="card-title">Genel Özellikler</h5>
+
+                                <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
+
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", () => {
+                                        echarts.init(document.querySelector("#trafficChart")).setOption({
+                                            tooltip: {
+                                                trigger: 'item'
+                                            },
+                                            legend: {
+                                                top: '5%',
+                                                left: 'center'
+                                            },
+                                            series: [{
+                                                name: '@item.PlayerName',
+                                                type: 'pie',
+                                                radius: ['40%', '70%'],
+                                                avoidLabelOverlap: false,
+                                                label: {
+                                                    show: false,
+                                                    position: 'center'
+                                                },
+                                                emphasis: {
+                                                    label: {
+                                                        show: true,
+                                                        fontSize: '18',
+                                                        fontWeight: 'bold'
+                                                    }
+                                                },
+                                                labelLine: {
+                                                    show: false
+                                                },
+                                                data: [{
+                                                    value: @item.Skill.MOTM,
+                                                    name: 'MOTM'
+                                                },
+                                                {
+                                                    value: @item.Skill.Rating,
+                                                    name: 'Rating'
+                                                },
+                                                {
+                                                    value: @item.Skill.Penalties,
+                                                    name: 'Penaltı'
+                                                },
+                                                {
+                                                    value: @item.Skill.Goal,
+                                                    name: 'Gol'
+                                                },
+                                                {
+                                                    value: @item.Skill.Assist,
+                                                    name: 'Asist'
+                                                }
+                                                ]
+                                            }]
+                                        });
+                                    });
+                                </script>
+
+                            </div>
+                        </div>
+
+                        <div class="card col-lg-4">
+                            <div class="card-body pb-0">
+                                <h5 class="card-title">Genel İstatitistikler</h5>
+
+                                <div id="budgetChart" style="min-height: 400px;" class="echart"></div>
+
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", () => {
+                                        var budgetChart = echarts.init(document.querySelector("#budgetChart")).setOption({
+                                            legend: {
+                                                data: ['Kazanılan', 'Kaybedilen']
+                                            },
+                                            radar: {
+                                                // shape: 'circle',
+                                                indicator: [{
+                                                    name: 'İkili Mücadele',
+                                                    max: @item.Skill.AerialDuelsWon + @item.Skill.AerialDuelsLost
+                                                },
+                                                {
+                                                    name: 'Pozisyon',
+                                                    max: @item.Skill.PossesionWon + @item.Skill.PossesionLost
+                                                },
+                                                {
+                                                    name: 'Dribling',
+                                                    max:  @item.Skill.SuccesfulDribbling +  @item.Skill.UnsuccessfulDribbling
+                                                },
+                                                {
+                                                    name: 'Maç Sayısı',
+                                                    max:  @item.Skill.StartedMatch + @item.Skill.BenchMatch
+                                                },
+                                                {
+                                                    name: 'Şut',
+                                                    max: @item.Skill.ShootsOnTarget + @item.Skill.ShootsOffTarget
+                                                },
+                                                {
+                                                    name: 'Diğer',
+                                                    max: 100
+                                                }
+                                                ]
+                                            },
+                                            series: [{
+                                                name: 'Kazanılan vs Kaybedilen',
+                                                type: 'radar',
+                                                data: [{
+                                                    value: [@item.Skill.AerialDuelsWon, @item.Skill.PossesionWon, @item.Skill.SuccesfulDribbling, @item.Skill.StartedMatch, @item.Skill.ShootsOnTarget, 50],
+                                                    name: 'Kazanılan'
+                                                },
+                                                {
+                                                    value: [@item.Skill.AerialDuelsLost, @item.Skill.PossesionLost, @item.Skill.UnsuccessfulDribbling, @item.Skill.BenchMatch, @item.Skill.ShootsOffTarget, 50],
+                                                    name: 'Kaybedilen'
+                                                }
+                                                ]
+                                            }]
+                                        });
+                                    });
+                                </script>
+
+                            </div>
+                        </div><br />
+                    }
+                </div>
+            </div>
+        </div>
+      
+    </div>
+</section>

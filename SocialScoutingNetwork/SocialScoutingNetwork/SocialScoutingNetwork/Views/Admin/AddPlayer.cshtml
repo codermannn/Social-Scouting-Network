@@ -1,0 +1,129 @@
+﻿@model EntityLayer.Concrete.Player
+@{
+    ViewData["Title"] = "AddPlayer";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Futbolcu Ekleme </h5>
+            </div>
+            <div class="ibox-content">
+                @using (Html.BeginForm("AddPlayer", "Admin", FormMethod.Post, new { @class = "", enctype = "multipart/form-data" }))
+                {
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Adı</label>
+
+                        <div class="col-sm-3"><input type="text" name="PlayerName" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Soyadı</label>
+
+                        <div class="col-sm-3"><input type="text" name="PlayerSurname" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Yaş</label>
+
+                        <div class="col-sm-3"><input type="text" name="PlayerAge" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Boy</label>
+
+                        <div class="col-sm-3"><input type="text" name="PlayerHeight" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Kilo</label>
+
+                        <div class="col-sm-3"><input type="text" name="PlayerWeight" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Pozisyon ISO</label>
+
+                        <div class="col-sm-3"><input type="text" name="PlayerPositionISO" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Pozisyon</label>
+
+                        <div class="col-sm-3"><input type="text" name="PlayerPosition" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Açıklama</label>
+
+                        <div class="col-sm-3"><input type="text" name="PlayerDescription" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Kulüp</label>
+
+                        <div class="col-sm-3"><input type="text" name="PlayerClub" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Doğum Tarihi</label>
+
+                        <div class="col-sm-3"><input type="datetime" name="PlayerBirthDate" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Menajer</label>
+
+                        <div class="col-sm-3"><input type="text" name="PlayerManager" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Değer</label>
+
+                        <div class="col-sm-3"><input type="text" name="PlayerValue" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Numara</label>
+
+                        <div class="col-sm-3"><input type="text" name="PlayerNumber" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Ülke</label>
+
+                        <div class="col-sm-3">@Html.DropDownListFor(x => x.CountryID, (List<SelectListItem>)ViewBag.country, new { @class = "form-control m-b", @style = "margin-top:8px;" })</div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Takım</label>
+
+                        <div class="col-sm-3">@Html.DropDownListFor(x => x.TeamID, (List<SelectListItem>)ViewBag.team, new { @class = "form-control m-b", @style = "margin-top:8px;" })</div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Lig</label>
+
+                        <div class="col-sm-3">@Html.DropDownListFor(x => x.LeagueID, (List<SelectListItem>)ViewBag.league, new { @class = "form-control m-b", @style = "margin-top:8px;" })</div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Yetenek</label>
+
+                        <div class="col-sm-3">@Html.DropDownListFor(x => x.SkillID, (List<SelectListItem>)ViewBag.skill, new { @class = "form-control m-b", @style = "margin-top:8px;" })</div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-4 col-sm-offset-2">
+                            <button class="btn btn-primary btn-sm" type="submit">Oyuncuyu Ekle</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+        

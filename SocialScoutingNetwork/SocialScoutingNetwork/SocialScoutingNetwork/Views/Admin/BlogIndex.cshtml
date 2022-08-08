@@ -1,0 +1,56 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+
+@{
+    ViewData["Title"] = "BlogIndex";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row" style="margin-top:50px; margin-left:25px;">
+    <div class="col-lg-auto" style="overflow-x:auto">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Blogs CRUD</h5>
+            </div>
+            <div class="ibox-content">
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Blog Başlığı</th>
+                            <th>Blog Alanı</th>
+                            <th>Küçük Resim</th>
+                            <th>Büyük Resim</th>
+                            <th>Blog Tarihi</th>
+                            <th>Blog Durumu</th>
+                            <th>Blog Yazarı</th>
+                            <th>Güncelle</th>
+                            <th>Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@item.BlogID</td>
+                            <td>@item.BlogTitle</td>
+                            <td>@item.BlogContent</td>
+                            <td><img src="/BlogImageFiles/@item.BlogImage" width="25" height="25" alt="@item.BlogImage" /></td>
+                            <td><a href="/BlogImageFiles/@item.BlogImage">Resimi Gör</a></td>
+                            <td>@(((DateTime)item.BlogCreateDate).ToString("dd.MM.yyyy"))</td>
+                            <td>@item.BlogStatus</td>
+                            <td>@item.Writer.WriterName @item.Writer.WriterSurname</td>
+                            <td><a class="btn btn-primary" href="/Admin/UpdateBlog/@item.BlogID/"><span class="fa fa-check"></span></a></td>
+                            <td><a class="btn btn-danger" onclick="confirmation(event, '@item.BlogTitle')" href="/Admin/DeleteBlog/@item.BlogID/"><span class="fa fa-trash"></span></a></td>
+                        </tr>
+                        }
+
+                    </tbody>
+                </table>
+                <a class="btn btn-info" style="margin-top:10px;" asp-action="AddBlog" asp-controller="Admin">Blog Ekle</a>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,86 @@
+﻿@model EntityLayer.Concrete.Team
+@{
+    ViewData["Title"] = "AddTeam";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Takım Ekleme </h5>
+            </div>
+            <div class="ibox-content">
+                @using (Html.BeginForm("AddTeam", "Admin", FormMethod.Post, new { @class = "", enctype = "multipart/form-data" }))
+                {
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Takım Adı</label>
+
+                        <div class="col-sm-3"><input type="text" name="TeamName" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Teknik Direktör</label>
+
+                        <div class="col-sm-3"><input type="text" name="TeamCoach" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Takım Değeri</label>
+
+                        <div class="col-sm-3"><input type="text" name="TeamValue" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Stat Adı</label>
+
+                        <div class="col-sm-3"><input type="text" name="TeamStatName" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Futbolcu Sayısı</label>
+
+                        <div class="col-sm-3"><input type="text" name="TeamPlayerCount" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Açıklama</label>
+
+                        <div class="col-sm-3"><input type="text" name="TeamDescription" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Kuruluş Yılı</label>
+
+                        <div class="col-sm-3"><input type="text" name="TeamFoundationYear" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Logo</label>
+
+                        <div class="col-sm-3"><input type="text" name="TeamImage" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Ülke</label>
+
+                        <div class="col-sm-3">@Html.DropDownListFor(x => x.CountryID, (List<SelectListItem>)ViewBag.country, new { @class = "form-control m-b", @style = "margin-top:8px;" })</div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Lig</label>
+
+                        <div class="col-sm-3">@Html.DropDownListFor(x => x.LeagueID, (List<SelectListItem>)ViewBag.league, new { @class = "form-control m-b", @style = "margin-top:8px;" })</div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-4 col-sm-offset-2">
+                            <button class="btn btn-primary btn-sm" type="submit">Takım Ekle</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

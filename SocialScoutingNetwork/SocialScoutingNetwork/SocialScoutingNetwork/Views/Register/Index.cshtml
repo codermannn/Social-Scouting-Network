@@ -1,0 +1,72 @@
+﻿@model EntityLayer.Concrete.Writer
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/RegisterLoginLayout.cshtml";
+}
+
+<div class="card mb-6">
+
+    <div class="card-body">
+
+        <div class="pt-4 pb-2">
+            <h5 class="card-title text-center pb-0 fs-4">Hesap Oluştur</h5>
+        </div>
+
+        @using (Html.BeginForm("Index", "Register", FormMethod.Post, new { @class = "row g-3", enctype = "multipart/form-data" } ) )
+        {
+            <div class="col-6">
+                <label for="yourName" class="form-label">Ad</label>
+                <input type="text" name="WriterName" class="form-control" id="">
+                <p class="text-danger">@Html.ValidationMessageFor(x => x.WriterName)</p>
+            </div>
+            <div class="col-6">
+                <label for="yourName" class="form-label">Soyad</label>
+                <input type="text" name="WriterSurname" class="form-control" id="">
+                <p class="text-danger">@Html.ValidationMessageFor(x => x.WriterSurname)</p>
+            </div>
+
+            <div class="col-12">
+                <label for="yourEmail" class="form-label">Kullanıcı Adı</label>
+                <input type="text" name="WriterUserName" class="form-control" id="">
+                <p class="text-danger">@Html.ValidationMessageFor(x => x.WriterUserName)</p>
+            </div>
+
+            <div class="col-12">
+                <label for="yourEmail" class="form-label">Email</label>
+                <input type="text" name="WriterMail" class="form-control" id="yourEmail">
+                <p class="text-danger">@Html.ValidationMessageFor(x => x.WriterMail)</p>
+            </div>
+            <div class="col-12">
+                <label for="yourEmail" class="form-label">Şifre</label>
+                <input type="password" name="WriterPassword" class="form-control" id="">
+                <p class="text-danger">@Html.ValidationMessageFor(x => x.WriterPassword)</p>
+            </div>
+            <div class="col-12">
+                <label for="yourEmail" class="form-label">Profil Resmi</label>
+                <input class="form-control" name="WriterImage" type="file">
+                <p class="text-danger">@*@Html.ValidationMessageFor(x => x.WriterImage)*@</p>
+            </div>
+
+            <div class="col-6">
+                <label for="inputDate" class="form-label">Doğum Tarihi</label>
+                <div class="">
+                    <input type="date" name="WriterBirthDate" class="form-control">
+                    @*<p class="text-danger">@Html.ValidationMessageFor(x => x.WriterBirthDate)</p>*@
+                </div>
+            </div>
+            <div class="col-6">
+                @Html.Label("Ülke")
+                @Html.DropDownListFor(x => x.CountryID, (List<SelectListItem>)ViewBag.country, new { @class = "form-select", @style = "margin-top:8px;" })
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary w-100" type="submit" >Hesap Oluştur</button>
+            </div>
+            <div class="col-12">
+                <p class="small mb-0">Zaten hesabın var mı? <a asp-action="Index" asp-controller="Login">Giriş yap</a></p>
+            </div>
+        }
+
+    </div>
+</div>
+

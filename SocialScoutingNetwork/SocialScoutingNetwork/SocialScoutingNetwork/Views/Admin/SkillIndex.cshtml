@@ -1,0 +1,83 @@
+﻿@using EntityLayer.Concrete
+@model List<Skill>
+@{
+    ViewData["Title"] = "SkillIndex";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row" style="margin-top:50px; margin-left:25px;">
+    <div class="col-lg-auto" style="overflow-x:auto">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Skills CRUD</h5>
+            </div>
+            <div class="ibox-content">
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Futbolcu Adı</th>
+                            <th>Gol</th>
+                            <th>Asist</th>
+                            <th>BBC</th>
+                            <th>Aanahtar Pas</th>
+                            <th>İsabetli Şut</th>
+                            <th>İsabetsiz Şut</th>
+                            <th>Kırmızı Kart</th>
+                            <th>Sarı Kart</th>
+                            <th>Başarısız Dripling</th>
+                            <th>Başarılı Dripling</th>
+                            <th>Kazanılan İkili Mücadele</th>
+                            <th>Kaybedilen İkili Mücadele</th>
+                            <th>Pozisyon Kaybı</th>
+                            <th>Pozisyon Kazanma</th>
+                            <th>Penaltı</th>
+                            <th>Uzun Top</th>
+                            <th>Yedek Maç</th>
+                            <th>İlk 11</th>
+                            <th>Reyting</th>
+                            <th>MOTM</th>
+                            <th>Güncelle</th>
+                            <th>Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@item.SkillID</td>
+                            <td>@item.SkillPlayerName</td>
+                            <td>@item.Goal</td>
+                            <td>@item.Assist</td>
+                            <td>@item.BBC</td>
+                            <td>@item.KeyPass</td>
+                            <td>@item.ShootsOnTarget</td>
+                            <td>@item.ShootsOffTarget</td>
+                            <td>@item.RedCards</td>
+                            <td>@item.YellowCards</td>
+                            <td>@item.UnsuccessfulDribbling</td>
+                            <td>@item.SuccesfulDribbling</td>
+                            <td>@item.AerialDuelsWon</td>
+                            <td>@item.AerialDuelsLost</td>
+                            <td>@item.PossesionLost</td>
+                            <td>@item.PossesionWon</td>
+                            <td>@item.Penalties</td>
+                            <td>@item.LongBall</td>
+                            <td>@item.BenchMatch</td>
+                            <td>@item.StartedMatch</td>
+                            <td>@item.Rating</td>
+                            <td>@item.MOTM</td>
+                            <td><a class="btn btn-primary" href="/Admin/UpdateSkill/@item.SkillID/"><span class="fa fa-check"></span></a></td>
+                            <td><a class="btn btn-danger" onclick="confirmation(event, '@item.SkillPlayerName')" href="/Admin/DeleteSkill/@item.SkillID/"><span class="fa fa-trash"></span></a></td>
+                        </tr>
+                        }
+
+                    </tbody>
+                </table>
+                <a class="btn btn-info" style="margin-top:10px;" asp-action="AddSkill" asp-controller="Admin">Yetenek Ekle</a>
+            </div>
+        </div>
+    </div>
+</div>
+

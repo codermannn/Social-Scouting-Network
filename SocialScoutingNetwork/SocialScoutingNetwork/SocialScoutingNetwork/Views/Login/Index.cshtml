@@ -1,0 +1,37 @@
+﻿@model EntityLayer.Concrete.Writer
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/RegisterLoginLayout.cshtml";
+}
+
+<div class="card col-6">
+
+    <div class="card-body">
+
+        <div class="pt-4 pb-2">
+            <h5 class="card-title text-center pb-0 fs-4">Giriş Yap</h5>
+        </div>
+
+        @using (Html.BeginForm("Index", "Login", FormMethod.Post, new { @class = "row g-3" }))
+        {
+            <div class="col-12">
+                <label for="yourName" class="form-label">Kullanıcı Adı</label>
+                <input type="text" name="WriterUserName" class="form-control" id="">
+                <p class="text-danger">@Html.ValidationMessageFor(x => x.WriterUserName)</p>
+            </div>
+            <div class="col-12">
+                <label for="yourName" class="form-label">Şifre</label>
+                <input type="password" name="WriterPassword" class="form-control" id="">
+                <p class="text-danger">@Html.ValidationMessageFor(x => x.WriterPassword)</p>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary w-100" type="submit">Giriş Yap</button>
+            </div>
+            <div class="col-12">
+                <p class="small mb-0">Hesabın yok mu? <a asp-action="Index" asp-controller="Register">Hesap Oluştur</a></p>
+            </div>
+        }
+
+    </div>
+</div>
+

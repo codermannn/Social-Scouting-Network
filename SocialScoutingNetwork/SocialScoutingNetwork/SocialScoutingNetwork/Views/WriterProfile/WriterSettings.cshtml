@@ -1,0 +1,182 @@
+﻿@model EntityLayer.Concrete.Writer
+@{
+    ViewData["Title"] = "WriterSettings";
+    Layout = "~/Views/Shared/UserLeftLayout.cshtml";
+}
+
+<section class="section profile">
+    <div class="row">
+        <div class="col-xl-4">
+
+            <div class="card">
+                <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+                    <img src="/WriterImageFiles/@ViewBag.pp" alt="Profile" class="">
+                    <h2>@ViewBag.n @ViewBag.s</h2>
+                    <h3>@ViewBag.tt</h3>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-xl-8">
+
+            <div class="card">
+                <div class="card-body pt-3">
+                    <!-- Bordered Tabs -->
+                    <ul class="nav nav-tabs nav-tabs-bordered">
+
+                        <li class="nav-item">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Genel</button>
+                        </li>
+
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Profili Düzenle</button>
+                        </li>
+
+                    </ul>
+                    <div class="tab-content pt-2">
+
+                        <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                            <h5 class="card-title">Hakkında</h5>
+                            <p class="small fst-italic">@ViewBag.ab</p>
+
+                            <h5 class="card-title">Profil Detayları</h5>
+
+                            <div class="row">
+                                <label class="col-md-4 col-lg-3 alert-heading">Adı Soyadı</label>
+                                <div class="col-lg-9 col-md-8">@ViewBag.n @ViewBag.s</div>
+                            </div>
+
+                            <div class="row">
+                                <label class="col-md-4 col-lg-3 alert-heading">Kullanıcı Adı</label>
+                                <div class="col-lg-9 col-md-8">@ViewBag.un</div>
+                            </div>
+
+                            <div class="row">
+                                <label class="col-md-4 col-lg-3 alert-heading">Ünvan</label>
+                                <div class="col-lg-9 col-md-8">@ViewBag.tt</div>
+                            </div>
+
+                            <div class="row">
+                                <label class="col-md-4 col-lg-3 alert-heading">Ülke</label>
+                                <div class="col-lg-9 col-md-8">@ViewBag.ct</div>
+                            </div>
+
+                            <div class="row">
+                                <label class="col-md-4 col-lg-3 alert-heading">Adres</label>
+                                <div class="col-lg-9 col-md-8">@ViewBag.ad</div>
+                            </div>
+
+                            <div class="row">
+                                <label class="col-md-4 col-lg-3 alert-heading">Doğum Tarihi</label>
+                                <div class="col-lg-9 col-md-8">@ViewBag.dt</div>
+                            </div>
+
+                            <div class="row">
+                                <label class="col-md-4 col-lg-3 alert-heading">E-Mail adresi</label>
+                                <div class="col-lg-9 col-md-8">@ViewBag.ml</div>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+
+                            <!-- Profile Edit Form -->
+                            @using (Html.BeginForm("WriterSettings", "WriterProfile", FormMethod.Post, new { @class = "row g-3", enctype = "multipart/form-data" }))
+                            {
+                                @Html.HiddenFor(x => x.WriterID, new { @class = "form-control", @style = "margin-top:8px;" })
+                                <div class="row mb-3">
+                                    <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profil Resmi</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <img src="/WriterImageFiles/@ViewBag.pp" alt="Profile">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label class="col-md-4 col-lg-3 col-form-label">Adı</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input name="WriterName" type="text" class="form-control" value="@ViewBag.n">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-md-4 col-lg-3 col-form-label">Soyadı</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input name="WriterSurname" type="text" class="form-control" value="@ViewBag.s">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-md-4 col-lg-3 col-form-label">Kullanıcı Adı</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input name="WriterUserName" type="text" class="form-control" value="@ViewBag.un">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-md-4 col-lg-3 col-form-label">Hakkında</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <textarea name="WriterAbout" class="form-control" style="height: 100px">@ViewBag.ab</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label class="col-md-4 col-lg-3 col-form-label">Ünvan</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input name="WriterTitle" type="text" class="form-control" value="@ViewBag.tt">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label class="col-md-4 col-lg-3 col-form-label">E-mail</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input name="WriterMail" type="text" class="form-control" value="@ViewBag.ml">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="Country" class="col-md-4 col-lg-3 col-form-label">Ülke</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        @Html.DropDownListFor(x => x.CountryID, (List<SelectListItem>)ViewBag.country, new { @class = "form-select", @style = "margin-top:8px;" })
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label class="col-md-4 col-lg-3 col-form-label">Adres</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input name="WriterAddress" type="text" class="form-control" value="@ViewBag.ad">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label class="col-md-4 col-lg-3 col-form-label">Doğum Tarihi</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input name="WriterBirthDate" type="datetime" class="form-control" value="05.05.2022">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-md-4 col-lg-3 col-form-label">Şifre</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input name="WriterPassword" type="password" readonly="readonly" class="form-control" value="@ViewBag.pass">
+                                    </div>
+                                </div>
+
+
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary">Değişiklikleri Kaydet</button>
+                                </div>
+                            }<!-- End Profile Edit Form -->
+
+                        </div>
+
+
+
+
+
+                    </div><!-- End Bordered Tabs -->
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+

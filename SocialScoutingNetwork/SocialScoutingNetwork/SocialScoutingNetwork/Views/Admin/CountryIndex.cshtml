@@ -1,0 +1,54 @@
+﻿@using EntityLayer.Concrete
+@model List<Country>
+@{
+    ViewData["Title"] = "CountryIndex";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row" style="margin-top:50px; margin-left:25px;">
+    <div class="col-lg-auto" style="overflow-x:auto">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Countries CRUD</h5>
+            </div>
+            <div class="ibox-content">
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Ülke ISO</th>
+                            <th>Ülke Adı</th>
+                            <th>Ülke N Adı</th>
+                            <th>Ülke ISO3</th>
+                            <th>Ülke Num Kodu</th>
+                            <th>Ülke Telefon Kodu</th>
+                            <th>Güncelle</th>
+                            <th>Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@item.CountryID</td>
+                            <td>@item.CountryISO</td>
+                            <td>@item.CountryName</td>
+                            <td>@item.CountryNName</td>
+                            <td>@item.CountryISO3</td>
+                            <td>@item.CountryNumCode</td>
+                            <td>@item.CountryPhoneCode</td>
+                            <td><a class="btn btn-primary" ><span class="fa fa-check"></span></a></td>
+                            <td><a class="btn btn-danger" ><span class="fa fa-trash"></span></a></td>
+                        </tr>
+                        }
+
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,87 @@
+﻿@model EntityLayer.Concrete.Team
+@{
+    ViewData["Title"] = "UpdateTeam";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Takım Güncelleme </h5>
+            </div>
+            <div class="ibox-content">
+                @using (Html.BeginForm("UpdateTeam", "Admin", FormMethod.Post, new { @class = "", enctype = "multipart/form-data" }))
+                {
+                    @Html.HiddenFor(x => x.TeamID, new { @class = "form-control", @style = "margin-top:8px;" })
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Takım Adı</label>
+
+                        <div class="col-sm-3">@Html.TextBoxFor(x => x.TeamName, new { @class = "form-control", @style = "" })</div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Teknik Direktör</label>
+
+                        <div class="col-sm-3">@Html.TextBoxFor(x => x.TeamCoach, new { @class = "form-control", @style = "" })</div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Takım Değeri</label>
+
+                        <div class="col-sm-3">@Html.TextBoxFor(x => x.TeamValue, new { @class = "form-control", @style = "" })</div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Stat Adı</label>
+
+                        <div class="col-sm-3">@Html.TextBoxFor(x => x.TeamStatName, new { @class = "form-control", @style = "" })</div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Futbolcu Sayısı</label>
+
+                        <div class="col-sm-3">@Html.TextBoxFor(x => x.TeamPlayerCount, new { @class = "form-control", @style = "" })</div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Açıklama</label>
+
+                        <div class="col-sm-3">@Html.TextBoxFor(x => x.TeamDescription, new { @class = "form-control", @style = "" })</div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Kuruluş Yılı</label>
+
+                        <div class="col-sm-3">@Html.TextBoxFor(x => x.TeamFoundationYear, new { @class = "form-control", @style = "" })</div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Logo</label>
+
+                        <div class="col-sm-3">@Html.TextBoxFor(x => x.TeamImage, new { @class = "form-control", @style = "" })</div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Ülke</label>
+
+                        <div class="col-sm-3">@Html.DropDownListFor(x => x.CountryID, (List<SelectListItem>)ViewBag.country, new { @class = "form-control m-b", @style = "margin-top:8px;" })</div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Lig</label>
+
+                        <div class="col-sm-3">@Html.DropDownListFor(x => x.LeagueID, (List<SelectListItem>)ViewBag.league, new { @class = "form-control m-b", @style = "margin-top:8px;" })</div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-4 col-sm-offset-2">
+                            <button class="btn btn-primary btn-sm" type="submit">Takım Güncelle</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

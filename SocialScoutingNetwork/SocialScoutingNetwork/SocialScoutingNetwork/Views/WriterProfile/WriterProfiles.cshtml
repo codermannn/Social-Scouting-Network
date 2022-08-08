@@ -1,0 +1,8 @@
+﻿
+@{
+    ViewData["Title"] = "WriterProfiles";
+    Layout = "~/Views/Shared/UserLeftLayout.cshtml";
+}
+
+@await Component.InvokeAsync("WriterLastBlog", new { id = ViewBag.i })
+

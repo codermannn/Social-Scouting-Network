@@ -1,0 +1,53 @@
+﻿@using EntityLayer.Concrete
+@model List<Comment>
+@{
+    ViewData["Title"] = "CommentIndex";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row" style="margin-top:50px; margin-left:25px;">
+    <div class="col-lg-auto" style="overflow-x:auto">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Comments CRUD</h5>
+            </div>
+            <div class="ibox-content">
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Yorum Kullanıcı Adı</th>
+                            <th>Yorum Başlık</th>
+                            <th>Yorum Alanı</th>
+                            <th>Yorum Tarihi</th>
+                            <th>Durum</th>
+                            <th>Gönderi Adı</th>
+                            <th>Güncelle</th>
+                            <th>Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.CommentID</td>
+                                <td>@item.CommentUserName</td>
+                                <td>@item.CommentTitle</td>
+                                <td>@item.CommentContent</td>
+                                <td>@(((DateTime)item.CommentDate).ToString("dd.MM.yyyy"))</td>
+                                <td>@item.CommentStatus</td>
+                                <td>@item.Blog.BlogTitle</td>
+                                <td><a class="btn btn-primary" href="#"><span class="fa fa-check"></span></a></td>
+                                <td><a class="btn btn-danger" onclick="confirmation(event, '@item.CommentTitle')" href="#"><span class="fa fa-trash"></span></a></td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+                <a class="btn btn-info" style="margin-top:10px;" @*asp-action="AddWriter" asp-controller="Admin"*@>Yorum Ekle</a>
+            </div>
+        </div>
+    </div>
+</div>
+

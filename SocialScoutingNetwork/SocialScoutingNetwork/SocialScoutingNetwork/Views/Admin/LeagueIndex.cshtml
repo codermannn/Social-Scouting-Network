@@ -1,0 +1,50 @@
+﻿@using EntityLayer.Concrete
+@model List<League>
+@{
+    ViewData["Title"] = "LeagueIndex";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row" style="margin-top:50px; margin-left:25px;">
+    <div class="col-lg-auto" style="overflow-x:auto">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Leagues CRUD</h5>
+            </div>
+            <div class="ibox-content">
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Lig Adı</th>
+                            <th>Lig Değeri</th>
+                            <th>Lig Takım Sayısı</th>
+                            <th>Lig Kuruluş Yılı</th>
+                            <th>Lig Açıklama</th>
+                            <th>Güncelle</th>
+                            <th>Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.LeagueID</td>
+                                <td>@item.LeagueName</td>
+                                <td>@item.LeagueValue</td>
+                                <td>@item.LeagueTeamCount</td>
+                                <td>@item.LeagueFoundationYear</td>
+                                <td>@item.LeagueDescription</td>
+                                <td><a class="btn btn-primary" href="/Admin/UpdateLeague/@item.LeagueID/"><span class="fa fa-check"></span></a></td>
+                                <td><a class="btn btn-danger" onclick="confirmation(event, '@item.LeagueName')" href="/Admin/DeleteLeague/@item.LeagueID/"><span class="fa fa-trash"></span></a></td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+                <a class="btn btn-info" style="margin-top:10px;" asp-action="AddLeague" asp-controller="Admin">Lig Ekle</a>
+            </div>
+        </div>
+    </div>
+</div>

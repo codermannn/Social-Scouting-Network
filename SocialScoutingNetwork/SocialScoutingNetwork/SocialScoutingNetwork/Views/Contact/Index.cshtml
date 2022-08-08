@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/UserLeftLayout.cshtml";
+}
+
+<section class="section contact">
+
+    <div class="row gy-4">
+
+        <div class="col-xl-6">
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="info-box card">
+                        <i class="bi bi-geo-alt"></i>
+                        <h3>Adres</h3>
+                        <p>Karşıyaka/İZMİR<br>ScoutingSoftware, 35000</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="info-box card">
+                        <i class="bi bi-telephone"></i>
+                        <h3>Bizi Ara</h3>
+                        <p>+90 539 583 75 17<br>...</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="info-box card">
+                        <i class="bi bi-envelope"></i>
+                        <h3>E-mail adresimiz</h3>
+                        <p>info@scoutingnetwork.com<br>selcukhancirgin@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="info-box card">
+                        <i class="bi bi-clock"></i>
+                        <h3>Hizmet Aralıklarımız</h3>
+                        <p>Pazartesi - Cuma<br>10.00 - 19.00</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-xl-6">
+            <div class="card p-4">
+                <form method="post">
+                    <div class="row gy-4">
+
+                        <div class="col-md-6">
+                            <input type="text" name="ContactUserName" class="form-control" placeholder="Adın">
+                        </div>
+
+                        <div class="col-md-6 ">
+                            <input type="email" class="form-control" name="ContactMail" placeholder="Email Adresin">
+                        </div>
+
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" name="ContactSubject" placeholder="Konu">
+                        </div>
+
+                        <div class="col-md-12">
+                            <textarea class="form-control" name="ContactMessage" rows="6" placeholder="Mesaj" ></textarea>
+                        </div>
+
+                        <div class="col-md-12 text-center">                           
+                            <button class="btn btn-primary w-100" type="submit">Gönder</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+

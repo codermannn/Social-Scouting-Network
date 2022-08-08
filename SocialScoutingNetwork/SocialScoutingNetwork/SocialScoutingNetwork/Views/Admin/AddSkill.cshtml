@@ -1,0 +1,152 @@
+﻿@model EntityLayer.Concrete.Skill
+@{
+    ViewData["Title"] = "AddSkill";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Yetenek Ekleme </h5>
+            </div>
+            <div class="ibox-content">
+                @using (Html.BeginForm("AddSkill", "Admin", FormMethod.Post, new { @class = "", enctype = "multipart/form-data" }))
+                {
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Gol</label>
+
+                        <div class="col-sm-3"><input type="text" name="Goal" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Asist</label>
+
+                        <div class="col-sm-3"><input type="text" name="Assist" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">BBC</label>
+
+                        <div class="col-sm-3"><input type="text" name="BBC" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">AnahtarPas</label>
+
+                        <div class="col-sm-3"><input type="text" name="KeyPass" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">İsabetli Şut</label>
+
+                        <div class="col-sm-3"><input type="text" name="ShootsOnTarget" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">İsabetsiz Şut</label>
+
+                        <div class="col-sm-3"><input type="text" name="ShootsOffTarget" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Kırmızı Kart</label>
+
+                        <div class="col-sm-3"><input type="text" name="RedCards" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Sarı Kart</label>
+
+                        <div class="col-sm-3"><input type="text" name="YellowCards" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Başarısız Dripling</label>
+
+                        <div class="col-sm-3"><input type="text" name="UnsuccesfulDribbling" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Başarılı Dripling</label>
+
+                        <div class="col-sm-3"><input type="datetime" name="SuccesfulDribbling" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Kazanılan İkili Mücadele</label>
+
+                        <div class="col-sm-3"><input type="text" name="AerialDuelsWon" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Kaybedilen ikili Mücadele</label>
+
+                        <div class="col-sm-3"><input type="text" name="AerialDuelsLost" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Pozisyon Kaybı</label>
+
+                        <div class="col-sm-3"><input type="text" name="PossesionLost" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Kazanılan Pozisyon</label>
+
+                        <div class="col-sm-3"><input type="text" name="PossesionWon" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Penaltı</label>
+
+                        <div class="col-sm-3"><input type="text" name="Penalties" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Uzun Top</label>
+
+                        <div class="col-sm-3"><input type="text" name="LongBall" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Yedek Maç Sayısı</label>
+
+                        <div class="col-sm-3"><input type="text" name="BenchMatch" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">İlk 11</label>
+
+                        <div class="col-sm-3"><input type="text" name="StartedMatch" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Reyting</label>
+
+                        <div class="col-sm-3"><input type="text" name="Rating" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">MOTM</label>
+
+                        <div class="col-sm-3"><input type="text" name="MOTM" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Yetenek Futbolcu Adı</label>
+
+                        <div class="col-sm-3"><input type="text" name="SkillPlayerName" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group row">
+                        <div class="col-sm-4 col-sm-offset-2">
+                            <button class="btn btn-primary btn-sm" type="submit">Yetenek Ekle</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

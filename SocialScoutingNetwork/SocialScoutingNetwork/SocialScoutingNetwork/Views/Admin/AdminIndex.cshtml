@@ -1,0 +1,47 @@
+﻿@using EntityLayer.Concrete
+@model List<Admin>
+@{
+    ViewData["Title"] = "AdminIndex";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row" style="margin-top:50px; margin-left:25px;">
+    <div class="col-lg-auto" style="overflow-x:auto">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Admins CRUD</h5>
+            </div>
+            <div class="ibox-content">
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Admin Kullanıcı Adı</th>
+                            <th>Admin Şifre</th>
+                            <th>Admin Rolü</th>
+                            <th>Admin Durumu</th>
+                            <th>Güncelle</th>
+                            <th>Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.AdminID</td>
+                                <td>@item.AdminUserName</td>
+                                <td>@item.AdminPassword</td>
+                                <td>@item.AdminRole</td>
+                                <td>@item.AdminStatus</td>
+                                <td><a class="btn btn-primary" href="/Admin/UpdateAdmin/@item.AdminID/"><span class="fa fa-check"></span></a></td>
+                                <td><a class="btn btn-danger" onclick="confirmation(event, '@item.AdminUserName')" href="/Admin/DeleteAdmin/@item.AdminID/"><span class="fa fa-trash"></span></a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a class="btn btn-info" style="margin-top:10px;" asp-action="AddAdmin" asp-controller="Admin">Admin Ekle</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+﻿@using EntityLayer.Concrete
+@model List<Player>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row" style="margin-top:50px; margin-left:25px;">
+    <div class="col-lg-auto" style="overflow-x:auto">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Players CRUD</h5>
+            </div>
+            <div class="ibox-content">
+
+                <table  class="table table-striped table-bordered" >
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Adı</th>
+                            <th>Soyadı</th>
+                            <th>Yaş</th>
+                            <th>Boy</th>
+                            <th>Kilo</th>
+                            <th>Pozisyon ISO</th>
+                            <th>Pozisyon</th>
+                            <th>Açıklama</th>
+                            <th>Kulüp</th>
+                            <th>Doğum Tarihi</th>
+                            <th>Menajer</th>
+                            <th>Değer</th>
+                            <th>Numara</th>
+                            <th>Durum</th>
+                            <th>Ülke</th>
+                            <th>Takım</th>
+                            <th>Lig</th>
+                            <th>Yetenek</th>
+                            <th>Güncelle</th>
+                            <th>Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.PlayerID</td>
+                                <td>@item.PlayerName</td>
+                                <td>@item.PlayerSurname</td>
+                                <td>@item.PlayerAge</td>
+                                <td>@item.PlayerHeight</td>
+                                <td>@item.PlayerWeight</td>
+                                <td>@item.PlayerPositionISO</td>
+                                <td>@item.PlayerPosition</td>
+                                <td>@item.PlayerDescription</td>
+                                <td>@item.PlayerClub</td>
+                                <td>@(((DateTime)item.PlayerBirthDate).ToString("dd.MM.yyyy"))</td>
+                                <td>@item.PlayerManager</td>
+                                <td>@item.PlayerValue</td>
+                                <td>@item.PlayerNumber</td>
+                                <td>@item.PlayerStatus</td>
+                                <td>@item.Country.CountryName</td>
+                                <td>@item.Team.TeamName</td>
+                                <td>@item.League.LeagueName</td>
+                                <td>@item.Skill.SkillID</td>
+                                <td><a class="btn btn-primary" href="/Admin/UpdatePlayer/@item.PlayerID/"><span class="fa fa-check"></span></a></td>
+                                <td><a class="btn btn-danger" id="deletedata" onclick="confirmation(event, '@item.PlayerName')" href="/Admin/DeletePlayer/@item.PlayerID/"><span class="fa fa-trash"></span></a></td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+                <a class="btn btn-info" style="margin-top:10px;" asp-action="AddPlayer" asp-controller="Admin" >Futbolcu Ekle</a>
+            </div>
+        </div>
+    </div>
+</div>
+

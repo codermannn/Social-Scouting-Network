@@ -1,0 +1,60 @@
+﻿@using EntityLayer.Concrete
+@model List<Team>
+@{
+    ViewData["Title"] = "TeamIndex";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row" style="margin-top:50px; margin-left:25px;">
+    <div class="col-lg-auto" style="overflow-x:auto">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Teams CRUD</h5>
+            </div>
+            <div class="ibox-content">
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Takım Adı</th>
+                            <th>Teknik Direktör</th>
+                            <th>Değer</th>
+                            <th>Stat Adı</th>
+                            <th>Futbolcu Sayısı</th>
+                            <th>Açıklama</th>
+                            <th>Kuruluş Yılı</th>
+                            <th>Logo</th>
+                            <th>Ülke</th>
+                            <th>Lig</th>
+                            <th>Güncelle</th>
+                            <th>Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@item.TeamID</td>
+                            <td>@item.TeamName</td>
+                            <td>@item.TeamCoach</td>
+                            <td>@item.TeamValue</td>
+                            <td>@item.TeamStatName</td>
+                            <td>@item.TeamPlayerCount</td>
+                            <td>@item.TeamDescription</td>
+                            <td>@item.TeamFoundationYear</td>
+                            <td>@item.TeamImage</td>
+                            <td>@item.Country.CountryName</td>
+                            <td>@item.League.LeagueName</td>
+                            <td><a class="btn btn-primary" href="/Admin/UpdateTeam/@item.TeamID/"><span class="fa fa-check"></span></a></td>
+                            <td><a class="btn btn-danger" onclick="confirmation(event, '@item.TeamName')" href="/Admin/DeleteTeam/@item.TeamID/"><span class="fa fa-trash"></span></a></td>
+                        </tr>
+                        }
+
+                    </tbody>
+                </table>
+                <a class="btn btn-info" style="margin-top:10px;" asp-action="Addteam" asp-controller="Admin">Takım Ekle</a>
+            </div>
+        </div>
+    </div>
+</div>

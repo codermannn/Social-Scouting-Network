@@ -1,0 +1,12 @@
+C:\Users\selcu\Desktop\SocialScoutingNetwork\SocialScoutingNetwork\CoreLayer\bin\Debug\net5.0\CoreLayer.deps.json
+C:\Users\selcu\Desktop\SocialScoutingNetwork\SocialScoutingNetwork\CoreLayer\bin\Debug\net5.0\CoreLayer.dll
+C:\Users\selcu\Desktop\SocialScoutingNetwork\SocialScoutingNetwork\CoreLayer\bin\Debug\net5.0\ref\CoreLayer.dll
+C:\Users\selcu\Desktop\SocialScoutingNetwork\SocialScoutingNetwork\CoreLayer\bin\Debug\net5.0\CoreLayer.pdb
+C:\Users\selcu\Desktop\SocialScoutingNetwork\SocialScoutingNetwork\CoreLayer\obj\Debug\net5.0\CoreLayer.csproj.AssemblyReference.cache
+C:\Users\selcu\Desktop\SocialScoutingNetwork\SocialScoutingNetwork\CoreLayer\obj\Debug\net5.0\CoreLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\selcu\Desktop\SocialScoutingNetwork\SocialScoutingNetwork\CoreLayer\obj\Debug\net5.0\CoreLayer.AssemblyInfoInputs.cache
+C:\Users\selcu\Desktop\SocialScoutingNetwork\SocialScoutingNetwork\CoreLayer\obj\Debug\net5.0\CoreLayer.AssemblyInfo.cs
+C:\Users\selcu\Desktop\SocialScoutingNetwork\SocialScoutingNetwork\CoreLayer\obj\Debug\net5.0\CoreLayer.csproj.CoreCompileInputs.cache
+C:\Users\selcu\Desktop\SocialScoutingNetwork\SocialScoutingNetwork\CoreLayer\obj\Debug\net5.0\CoreLayer.dll
+C:\Users\selcu\Desktop\SocialScoutingNetwork\SocialScoutingNetwork\CoreLayer\obj\Debug\net5.0\ref\CoreLayer.dll
+C:\Users\selcu\Desktop\SocialScoutingNetwork\SocialScoutingNetwork\CoreLayer\obj\Debug\net5.0\CoreLayer.pdb

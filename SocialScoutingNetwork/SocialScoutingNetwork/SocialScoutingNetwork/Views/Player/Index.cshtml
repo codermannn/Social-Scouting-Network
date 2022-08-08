@@ -1,0 +1,40 @@
+﻿@using EntityLayer.Concrete
+@model List<Player>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/UserLeftLayout.cshtml";
+}
+@foreach (var item in Model)
+	{
+<div class="col-xxl-3 col-md-6">
+    <div class="card info-card sales-card">
+
+        <div class="filter">
+            <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <li class="dropdown-header text-start">
+                    <h6>Seçenekler</h6>
+                </li>
+                <li><a class="dropdown-item" href="/Player/PlayerDetails/@item.PlayerID/">Detaylar</a></li>
+            </ul>
+        </div>
+
+        <div class="card-body">
+            <h5 class="card-title">@item.PlayerNumber <span>| @item.Team.TeamName</span></h5>
+
+            <div class="d-flex align-items-center">
+                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="ri-account-circle-fill"></i>
+                </div>
+                <div class="ps-3">
+                    <h6>@item.PlayerName @item.PlayerSurname</h6>
+                    <span class="text-success small pt-1 fw-bold">@item.PlayerPositionISO</span> <span class="text-muted small pt-2 ps-1">@item.Country.CountryName</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+	}
+
+

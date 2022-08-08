@@ -1,0 +1,53 @@
+﻿@using EntityLayer.Concrete
+@model List<Contactt>
+@{
+    ViewData["Title"] = "ContactIndex";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row" style="margin-top:50px; margin-left:25px;">
+    <div class="col-lg-auto" style="overflow-x:auto">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Contacts CRUD</h5>
+            </div>
+            <div class="ibox-content">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Gönderen</th>
+                            <th>Mail Adresi</th>
+                            <th>Konu</th>
+                            <th>Mesaj</th>
+                            <th>Tarih</th>
+                            <th>Durum</th>
+                            <th>Güncelle</th>
+                            <th>Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.ContactID</td>
+                                <td>@item.ContactUserName</td>
+                                <td>@item.ContactMail</td>
+                                <td>@item.ContactSubject</td>
+                                <td>@item.ContactMessage</td>
+                                <td>@(((DateTime)item.ContactDate).ToString("dd.MM.yyyy"))</td>
+                                <td>@item.ContactStatus</td>
+                                <td><a class="btn btn-primary"><span class="fa fa-check"></span></a></td>
+                                <td><a class="btn btn-danger"><span class="fa fa-trash"></span></a></td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
